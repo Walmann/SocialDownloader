@@ -47,7 +47,7 @@ def download():
 
 
 
-downloadDBFile = "./downloadDBDEV.json"
+downloadDBFile = "./downloadDB.json"
 if __name__ == "__main__":
     try:
         f = open(downloadDBFile, "r")
