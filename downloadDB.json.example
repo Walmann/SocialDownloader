@@ -1,0 +1,18 @@
+{
+    // Remember to remove all comments before using this script
+    // "Example Name": { // Used as a display name
+    //     "command": "snapchat-dl", // Which command to use. See main script for options.
+    //     "link": "https://www.snapchat.com/add/ExampleUser", // What to download
+    //     "downloadLocation": "./DL/ExampleFolder" // Base directory where things are downloaded
+    // },
+    "Example Name": {
+        "command": "snapchat-dl",
+        "link": "https://www.snapchat.com/add/ExampleUser",
+        "downloadLocation": "./DL/ExampleFolder"
+    },
+    "Example Name2": {
+        "command": "snapchat-dl",
+        "link": "https://www.snapchat.com/add/ExampleUser",
+        "downloadLocation": "./DL/ExampleFolder"
+    }
+}

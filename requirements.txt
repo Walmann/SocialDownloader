@@ -1,0 +1,3 @@
+snapchat-dl
+gallery-dl
+requests

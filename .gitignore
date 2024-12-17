@@ -1,0 +1,4 @@
+.venv
+/DL/*
+downloadDBDEV.json
+**/__pycache__
