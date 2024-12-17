@@ -25,7 +25,10 @@ def download(profile:profileClass, downloadDirectory):
     gConfig.load()
 
     gallery_dl.config.set(('extractor',), "base-directory", downloadDirectory)
+    gallery_dl.config.set(("extractor",), "directory", ["{subcategory}"])
     gallery_dl.config.set(('extractor'), "filename", "{date:%Y-%m-%d} - {title[:50]} {id}{num:?_//}.{extension}")
+    gallery_dl.config.set(('extractor', "instagram"), "cursor", True)
+    gallery_dl.config.set(('extractor', "instagram"), "include",  "tagged,reels,highlights,info,avatar,posts") #"stories,tagged,reels,highlights,info,avatar,posts"
 
     try:        
         gallery_dl.job.DownloadJob(profile.link).run()
@@ -34,5 +37,3 @@ def download(profile:profileClass, downloadDirectory):
         print("Error!")
         print(str(e))
     pass
-
-
