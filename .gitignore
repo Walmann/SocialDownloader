@@ -2,3 +2,4 @@
 /DL/*
 downloadDB.json
 **/__pycache__
+downloadArchive.db
