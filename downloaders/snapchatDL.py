@@ -5,7 +5,8 @@ import requests
 from dep.profileClass import profileClass
 
 def profileDownload(profile: profileClass):
-    download(profile=profile.name, downloadDirectory=profile.downloadLocation)
+    profileSnapUsername = profile.link.strip("https://www.snapchat.com/add/").strip("http://www.snapchat.com/add/")
+    download(profile=profileSnapUsername, downloadDirectory=profile.downloadLocation)
     pass
 
 def download(profile, downloadDirectory):
