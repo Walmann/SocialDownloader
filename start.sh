@@ -60,4 +60,39 @@ echo "Pakkene er installert."
 # Ferdig
 echo "Skriptet er fullført. Starter SocialDownloader via continousDownload.py"
 
-python3 ./continousDownload.py
+# Sjekk om det er gitt argumenter
+if [[ $# -eq 0 ]]; then
+    echo "Ingen argumenter gitt. Kjører script med standard innstillinger"
+    python3 ./continousDownload.py
+fi
+
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        (-h|--help)
+            show_help
+            exit 0
+            ;;
+        (-f|--full)
+            echo "Kjører en full nedlastning første runde i scriptet"
+            python3 ./continousDownload.py --full
+            ;;
+        # (-m|--message)
+        #     if [[ -n "$2" ]]; then
+        #         echo "Melding: $2"
+        #         shift # Hopp over meldingen
+        #     else
+        #         echo "Feil: --message krever en melding."
+        #         exit 1
+        #     fi
+        #     ;;
+        (*)
+            echo "Ukjent alternativ: $1"
+            echo "Bruk -h eller --help for å vise hjelp."
+            exit 1
+            ;;
+    esac
+    shift # Hopp over til neste argument
+done
+
+
