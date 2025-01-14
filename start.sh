@@ -48,6 +48,7 @@ echo "Det virtuelle miljøet er aktivert."
 echo "Installerer pakkene fra $REQ_FILE..."
 pip install --upgrade pip  # Oppdater pip
 pip install -r "$REQ_FILE"
+pip install -r "$REQ_FILE" -U
 
 if [ $? -ne 0 ]; then
     echo "Kunne ikke installere pakkene."
