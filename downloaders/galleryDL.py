@@ -15,18 +15,27 @@ from dep.profileClass import profileClass
 
 
 
-def profileDownload(profile: profileClass):
-    download(profile=profile, downloadDirectory=profile.downloadLocation)
+def profileDownload(profile: profileClass, fullDownload = False):
+    download(profile=profile, downloadDirectory=profile.downloadLocation, fullDownload = fullDownload)
     pass
 
-def download(profile:profileClass, downloadDirectory):
+def download(profile:profileClass, downloadDirectory, fullDownload = False):
     gConfig = gallery_dl.config
 
     gConfig.load()
 
     gallery_dl.config.set(('extractor',), "base-directory", downloadDirectory)
     gallery_dl.config.set(("extractor",), "directory", ["{subcategory}"])
-    gallery_dl.config.set(('extractor'), "filename", "{date:%Y-%m-%d} - {title[:50]} {id}{num:?_//}.{extension}")
+    gallery_dl.config.set(('extractor'), "filename", "{date:%Y-%m-%d} - {title[:50]} {id}.{extension}")
+    gallery_dl.config.set(('extractor',), "archive", "./downloadArchive.db")
+    gallery_dl.config.set(('output',), "skip", False)
+
+    
+    if not fullDownload:
+        gallery_dl.config.set(('extractor',), "skip", "abort:20")
+
+
+    
     gallery_dl.config.set(('extractor', "instagram"), "cursor", True)
     gallery_dl.config.set(('extractor', "instagram"), "include",  "tagged,reels,highlights,info,avatar,posts") #"stories,tagged,reels,highlights,info,avatar,posts"
 
