@@ -24,6 +24,8 @@ def download(profile:profileClass, downloadDirectory, fullDownload = False):
 
     gConfig.load()
 
+    # TODO Move gConfig to its own function
+
     gallery_dl.config.set(('extractor',), "base-directory", downloadDirectory)
     gallery_dl.config.set(("extractor",), "directory", ["{subcategory}"])
     gallery_dl.config.set(('extractor'), "filename", "{date:%Y-%m-%d} - {title[:50]} {id}.{extension}")
